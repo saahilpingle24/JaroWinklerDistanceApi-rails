@@ -15,11 +15,11 @@ module V1
 					return_result = begin_processing()
 					render json: return_result
 				else
-					error_message = {'error':'true','response':'missing input parameters and/or malformed input'}
+					error_message = {"error":"true","response":"missing input parameters and/or malformed input"}
 					render json: error_message
 				end			
 			rescue Exception => ex
-				error_message = {'error':'true','response':ex.message}
+				error_message = {"error":"true","response":ex.message}
 				render json: error_message
 			end
 		end
@@ -36,7 +36,7 @@ module V1
 				return_result = begin_processing()
 				render json: return_result
 			rescue
-				error_message = {'error':'true','response':'missing input parameters and/or malformed input'}
+				error_message = {"error":"true","response":"missing input parameters and/or malformed input"}
 				render json: error_message
 			end
 		end	
@@ -46,16 +46,16 @@ module V1
 			@final_result = Hash.new {}	
 			result_set = get_score()
 			if result_set.present?					
-				@final_result['error'] = 'true'
-    			@final_result['response'] = result_set					
+				@final_result["error"] = "true"
+    			@final_result["response"] = result_set					
 			else					
-				@final_result['error'] = 'false'
-				@final_result['response'] = {}
-				@final_result['response']['name'] = @name
-				@final_result['response']['comparisons'] = {}
+				@final_result["error"] = "false"
+				@final_result["response"] = {}
+				@final_result["response"]["name"] = @name
+				@final_result["response"]["comparisons"] = {}
 				for tuple in @alias_names.zip(@inter_result)
 					if tuple[1] >= @threshold
-						@final_result['response']['comparisons'][tuple[0]] = tuple[1]
+						@final_result["response"]["comparisons"][tuple[0]] = tuple[1]
 					end
 				end
 			end
