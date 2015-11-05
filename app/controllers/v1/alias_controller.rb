@@ -15,11 +15,11 @@ module V1
 					return_result = begin_processing()
 					render json: return_result
 				else
-					error_message = {"error":"true","response":"missing input parameters and/or malformed input"}
+					error_message = {:error => "true", :response => "missing input parameters and/or malformed input"}
 					render json: error_message
 				end			
 			rescue Exception => ex
-				error_message = {"error":"true","response":ex.message}
+				error_message = {:error => "true", :response => ex.message}
 				render json: error_message
 			end
 		end
@@ -36,7 +36,7 @@ module V1
 				return_result = begin_processing()
 				render json: return_result
 			rescue
-				error_message = {"error":"true","response":"missing input parameters and/or malformed input"}
+				error_message = {:error => "true", :response => "missing input parameters and/or malformed input"}
 				render json: error_message
 			end
 		end	
