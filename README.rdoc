@@ -8,10 +8,13 @@ API for JaroWinklerDistance algorithm developed using Ruby on Rails.
 
 Supports GET method.
 
-GET /v1/alias?name=Martha&alias=Marhta&threshold=90
+GET /v1/alias?name=Martha&alias=Marhta&threshold=0.96
 
 name:		single value
 
 alias:		single or comma separated value(s)
 
-threshold:	optional
+threshold:	optional (between 0 and 1)
+
+Demo:		https://jarowinklerdistanceapirails.herokuapp.com/v1/alias?name=martha&alias=marhta&threshold=0.96
+
