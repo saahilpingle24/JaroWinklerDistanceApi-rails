@@ -1,13 +1,17 @@
 == README
 
-API for JaroWinklerDistance algorith developed using Ruby on Rails.
+API for JaroWinklerDistance algorithm developed using Ruby on Rails.
 
 1. Clone the repository.
 2. Run command 'bundle install' to install the dependencies.
 3. Run the command 'rails s' to serve locally. 
 
 Supports GET method.
+
 GET /v1/alias?name=Martha&alias=Marhta&threshold=90
+
 name:		single value
+
 alias:		single or comma separated value(s)
+
 threshold:	optional
